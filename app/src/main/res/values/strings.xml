@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Udyam</string>
+    <string name="restoring_nature">Restoring Nature</string>
+    <string name="sign_in">Sign In</string>
 </resources>
