@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "594458326302",
+    "project_id": "udyam-3da74",
+    "storage_bucket": "udyam-3da74.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594458326302:android:a652e04713287829f5850f",
+        "android_client_info": {
+          "package_name": "com.example.udyam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594458326302-rp0mksin6hlsuo3vnaf0dfc9nu1b8424.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDr6YiM76-EG6inQ7KuYjXDGvXfUsyQdr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594458326302-rp0mksin6hlsuo3vnaf0dfc9nu1b8424.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
