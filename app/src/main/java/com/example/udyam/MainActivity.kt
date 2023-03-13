@@ -3,6 +3,7 @@ package com.example.udyam
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.example.udyam.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -18,6 +19,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate((layoutInflater))
         setContentView(binding.root)
 
+        binding.bottomNavigationView.setOnItemSelectedListener{
+            when(it.itemId){
+                R.id.home ->replaceFragment(Home())
+                R.id.map ->replaceFragment(Map())
+                R.id.schedule ->replaceFragment(Schedule())
+                R.id.leaderboard ->replaceFragment(LeaderBoard())
+                R.id.profile ->replaceFragment(Profile())
+
+                else ->{
+
+                }
+
+            }
+            true
+        }
+
+
         binding.signOut.setOnClickListener {
 
             firebaseAuth = FirebaseAuth.getInstance()
@@ -26,5 +44,17 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
+
+
+
+
+
+    }
+
+    private fun replaceFragment(fragment : Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout,fragment)
+        fragmentTransaction.commit()
     }
 }
