@@ -43,18 +43,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,login_activity::class.java))
             finish()
         }
-
-
-
-
-
-
     }
 
     private fun replaceFragment(fragment : Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout,fragment)
+        fragmentTransaction.replace(R.id.fragment_container,fragment)
         fragmentTransaction.commit()
     }
 }
