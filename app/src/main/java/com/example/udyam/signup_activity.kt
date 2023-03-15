@@ -7,11 +7,14 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.udyam.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class signup_activity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignupBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var database:DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
@@ -30,6 +33,17 @@ class signup_activity : AppCompatActivity() {
             if(email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty()){
                 firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{
                     if(it.isSuccessful){
+
+                        val currUser = firebaseAuth.currentUser
+
+                        database = FirebaseDatabase.getInstance().getReference("Users")
+                        val user = user(name,email)
+                        database.child(currUser!!.uid).child("Profile").setValue(user).addOnSuccessListener {
+                            Toast.makeText(this,"Profile Created Successfully",Toast.LENGTH_SHORT).show()
+                        }.addOnFailureListener {
+                            Toast.makeText(this,"Profile not Created",Toast.LENGTH_SHORT).show()
+                        }
+
                         val login_intent = Intent(this,login_activity::class.java)
                         startActivity(login_intent)
                         finish()
