@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener{
             when(it.itemId){
                 R.id.home ->replaceFragment(Home())
-                R.id.map ->replaceFragment(Map())
+                R.id.map ->replaceFragment(MapsFragment())
                 R.id.schedule ->replaceFragment(Schedule())
                 R.id.leaderboard ->replaceFragment(LeaderBoard())
                 R.id.profile ->replaceFragment(Profile())
