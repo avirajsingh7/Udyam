@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener{
             when(it.itemId){
                 R.id.home ->replaceFragment(Home())
-                R.id.map ->replaceFragment(Map())
+                R.id.map ->replaceFragment(MapsFragment())
                 R.id.schedule ->replaceFragment(Schedule())
                 R.id.leaderboard ->replaceFragment(LeaderBoard())
                 R.id.profile ->replaceFragment(Profile())
@@ -43,18 +43,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,login_activity::class.java))
             finish()
         }
-
-
-
-
-
-
     }
 
     private fun replaceFragment(fragment : Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout,fragment)
+        fragmentTransaction.replace(R.id.fragment_container,fragment)
         fragmentTransaction.commit()
     }
 }
