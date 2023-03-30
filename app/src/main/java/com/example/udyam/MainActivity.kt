@@ -35,14 +35,14 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-
-        binding.signOut.setOnClickListener {
-
-            firebaseAuth = FirebaseAuth.getInstance()
-            firebaseAuth.signOut();
-            startActivity(Intent(this,login_activity::class.java))
-            finish()
-        }
+//
+//        binding.signOut.setOnClickListener {
+//
+//            firebaseAuth = FirebaseAuth.getInstance()
+//            firebaseAuth.signOut();
+//            startActivity(Intent(this,login_activity::class.java))
+//            finish()
+//        }
     }
 
     private fun replaceFragment(fragment : Fragment) {
