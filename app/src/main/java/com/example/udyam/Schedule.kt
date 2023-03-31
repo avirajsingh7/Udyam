@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +22,20 @@ class Schedule : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Find the Create Event button and set its OnClickListener
+        val createEventButton = view.findViewById<Button>(R.id.event_button)
+        createEventButton.setOnClickListener {
+            // Create a new instance of the CreateEventDialogFragment
+            val createEventDialogFragment = CreateEventDialogFragment()
+
+            // Show the dialog box
+            createEventDialogFragment.show(parentFragmentManager, "createEvent")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
